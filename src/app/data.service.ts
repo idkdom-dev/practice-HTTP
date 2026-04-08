@@ -17,6 +17,10 @@ export class DataService {
     this.http.get<Post[]>(this.url).subscribe((data) => this.posts.set(data));
   }
 
+  getPostById(postId: number) {
+    return this.posts().find((post) => post.id === postId);
+  }
+
   // getPosts() {
   //   return this.http.get<Post[]>(this.url);
   // }

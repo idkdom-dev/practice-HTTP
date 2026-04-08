@@ -1,4 +1,4 @@
-import { Component, inject, input } from '@angular/core';
+import { Component, computed, inject, input } from '@angular/core';
 import { DataService } from '../data.service';
 import { Post } from '../post';
 import { RouterModule } from '@angular/router';
@@ -14,7 +14,9 @@ export class PostDetailComponent {
 
   dataService = inject(DataService);
 
-  post!: Post;
+  // post!: Post;
+
+  post = computed(() => this.dataService.getPostById(Number(this.id())));
 
   ngOnInit() {
     // this.dataService
